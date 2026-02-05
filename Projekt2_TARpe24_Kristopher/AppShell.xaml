@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Projekt2_TARpe24_Kristopher.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Projekt2_TARpe24_Kristopher"
+    Title="Projekt2_TARpe24_Kristopher">
+
+    <Shell.TitleView>
+        <Label
+            Text="näidis"
+            FontFamily="luffio Regular 400"
+            FontSize="title"
+            TextColor="DarkGoldenrod"
+            VerticalTextAlignment="Center"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+            Padding="25,0,0,0"
+            HeightRequest="50"/>
+    </Shell.TitleView>
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:Index}"
+        Route="Index" />
+
+    <ShellContent
+     Title="TextPage"
+     ContentTemplate="{DataTemplate local:TextPage}"
+     Route="Index" />
+    
+    <ShellContent
+    Title="FigurePage"
+    ContentTemplate="{DataTemplate local:TextPage}"
+    Route="Index" />
+
+</Shell>
