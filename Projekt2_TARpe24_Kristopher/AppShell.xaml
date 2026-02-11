@@ -21,7 +21,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:Index}"
+        ContentTemplate="{DataTemplate local:StartPage}"
         Route="Index" />
 
     <ShellContent
@@ -31,7 +31,7 @@
     
     <ShellContent
     Title="FigurePage"
-    ContentTemplate="{DataTemplate local:TextPage}"
+    ContentTemplate="{DataTemplate local:FigurePage}"
     Route="Index" />
 
 </Shell>
