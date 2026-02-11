@@ -34,4 +34,9 @@
     ContentTemplate="{DataTemplate local:FigurePage}"
     Route="Index" />
 
+    <ShellContent
+    Title="TimerPage"
+    ContentTemplate="{DataTemplate local:TimerPage}"
+    Route="Index" />
+
 </Shell>

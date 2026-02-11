@@ -2,6 +2,7 @@ namespace Projekt2_TARpe24_Kristopher;
 
 public partial class TextPage : ContentPage
 {
+   
     Label lbl;
     Editor editor;
     HorizontalStackLayout hsl;
@@ -10,6 +11,8 @@ public partial class TextPage : ContentPage
 
     public TextPage()
     {
+        InitializeComponent();
+
         lbl = new Label
         {
             Text = "Pealkiri",
@@ -63,20 +66,50 @@ public partial class TextPage : ContentPage
         Content = vsl;
     }
 
-private void Liikumine(object? sender, EventArgs e)
+    private void Liikumine(object? sender, EventArgs e)
     {
         Button nupp = sender as Button;
         if (nupp.ZIndex == 0)
         {
-            Navigation.PopAsync();
+            Navigation.PushAsync(new StartPage());
         }
         else if (nupp.ZIndex == 1)
         {
-            Navigation.PopToRootAsync();
+            Navigation.PushAsync(new StartPage());
         }
         else if (nupp.ZIndex == 2)
         {
             Navigation.PushAsync(new FigurePage());
+        }
+
+    }
+
+    private async void Btn_Clicked(object? sender, EventArgs e)
+    {
+        IEnumerable<Locale> locales = await TextToSpeech.Default.GetLocalesAsync();
+
+        SpeechOptions options = new SpeechOptions()
+        {
+            Pitch = 1.5f,   // 0.0 - 2.0
+            Volume = 0.75f, // 0.0 - 1.0
+            Locale = locales.FirstOrDefault()
+        };
+
+        // Note: Check if your editor is named 'editor' or 'editorTekst'
+        var text = editor.Text;
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            await DisplayAlert("Viga", "Palun sisesta tekst", "OK");
+            return;
+        }
+
+        try
+        {
+            await TextToSpeech.SpeakAsync(text, options);
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("TTS viga", ex.Message, "OK");
         }
     }
 }

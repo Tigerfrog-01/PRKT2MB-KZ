@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.TimerPage"
+             Title="Timer"
+             BackgroundColor="#f4f4f4">
+
+	<Grid RowDefinitions="*, Auto" Padding="30">
+
+		<VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="Center"
+                             Spacing="20">
+
+			<Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   HasShadow="True"
+                   Padding="20">
+				<VerticalStackLayout Spacing="10">
+					<Label x:Name="lbl"
+                           Text="Valjuta nuppule ja siia"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           TextColor="#333">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Button x:Name="timer_btn"
+					Text="00:00:00"
+					FontSize="24"
+					FontAttributes="Bold"
+					BackgroundColor="DarkGoldenrod"
+					TextColor="White"
+					CornerRadius="10"
+					Padding="15"
+					Clicked="timer_btn_Clicked">
+					</Button>
+				</VerticalStackLayout>
+			</Frame>
+
+		</VerticalStackLayout>
+
+		<Button Grid.Row="1"
+                x:Name="tagasi"
+                Text="Tagasi Avalehele"
+                FontSize="18"
+                BackgroundColor="LightGray"
+                TextColor="Black"
+                CornerRadius="10"
+                Margin="0,20,0,0"
+                Clicked="tagasi_Clicked">
+		</Button>
+
+	</Grid>
+</ContentPage>

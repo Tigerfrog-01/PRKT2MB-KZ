@@ -2,14 +2,17 @@ namespace Projekt2_TARpe24_Kristopher;
 
 public partial class StartPage : ContentPage
 {
+
     VerticalStackLayout vst;
     ScrollView sv;
-    public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage() };
-    public List<string> LeheNimed = new List<string>() { "Tekst", "Kujund" };
+    public List<ContentPage> Lehed = new List<ContentPage>() { new TextPage(), new FigurePage(), new TimerPage() };
+    public List<string> LeheNimed = new List<string>() { "Tekst", "Kujund", "Timer" };
 
     public StartPage()
     {
-        
+
+        InitializeComponent();
+
         vst = new VerticalStackLayout { Padding = 20, Spacing = 15 };
         for (int i = 0; i < Lehed.Count; i++)
         {
