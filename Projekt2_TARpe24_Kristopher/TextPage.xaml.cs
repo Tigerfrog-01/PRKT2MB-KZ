@@ -95,7 +95,7 @@ public partial class TextPage : ContentPage
             Locale = locales.FirstOrDefault()
         };
 
-        // Note: Check if your editor is named 'editor' or 'editorTekst'
+   
         var text = editor.Text;
         if (string.IsNullOrWhiteSpace(text))
         {

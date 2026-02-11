@@ -38,5 +38,10 @@
     Title="TimerPage"
     ContentTemplate="{DataTemplate local:TimerPage}"
     Route="Index" />
+    
+    <ShellContent
+    Title="TimerPage"
+    ContentTemplate="{DataTemplate local:ValgusFloorPage}"
+    Route="Index" />
 
 </Shell>
