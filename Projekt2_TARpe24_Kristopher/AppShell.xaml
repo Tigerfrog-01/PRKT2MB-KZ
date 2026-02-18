@@ -40,8 +40,18 @@
     Route="Index" />
     
     <ShellContent
-    Title="TimerPage"
+    Title="ValgusFloorPage"
     ContentTemplate="{DataTemplate local:ValgusFloorPage}"
     Route="Index" />
+
+    <ShellContent
+  Title="DateTimePage"
+  ContentTemplate="{DataTemplate local:DateTimePage}"
+  Route="Index" />
+
+    <ShellContent
+  Title="StepperSlidePage"
+  ContentTemplate="{DataTemplate local:StepperSliderPage}"
+  Route="Index" />
 
 </Shell>

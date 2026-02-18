@@ -1,6 +1,6 @@
 using Microsoft.Maui.Controls.Shapes;
 
-using Microsoft.Maui.Controls.Shapes;
+
 
 namespace Projekt2_TARpe24_Kristopher;
 
