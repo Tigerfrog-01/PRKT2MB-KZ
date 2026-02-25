@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.Lumememm"
+             Title="Lumememm">
+
+    <Grid BackgroundColor="SkyBlue">
+        
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            
+        </Grid.RowDefinitions>
+
+        <BoxView Grid.Row="1" HeightRequest="100" WidthRequest="100" BackgroundColor="Transparent" Color="Grey" HorizontalOptions="Center" CornerRadius="15" />
+
+        <BoxView Grid.Row="2" CornerRadius="75" HeightRequest="150" WidthRequest="150" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" />
+
+        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="40" Margin="0,0,0,20">
+            
+            <Frame BackgroundColor="Black" CornerRadius="25" HeightRequest="30" WidthRequest="30" />
+            
+            <Frame BackgroundColor="Black" CornerRadius="25" HeightRequest="30" WidthRequest="30" />
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="3" CornerRadius="100" HeightRequest="200" WidthRequest="200" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" Margin="0,-15,0,0" />
+
+        <VerticalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
+            
+            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
+            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
+            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
+            
+        
+        </VerticalStackLayout>
+
+        <BoxView Grid.Row="4" CornerRadius="125" HeightRequest="250" WidthRequest="250" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" Margin="0,-25,0,0" />
+        <VerticalStackLayout Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Start" Spacing="15">
+
+            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
+            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
+     
+
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

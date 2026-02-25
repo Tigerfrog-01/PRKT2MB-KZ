@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.RGB"
+             Title="RGB">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <VerticalStackLayout>
+        <BoxView x:Name="RedBox" 
+                 BackgroundColor="Transparent"
+    HeightRequest="100" 
+    WidthRequest="100" 
+    Color="Black" 
+    HorizontalOptions="Center" 
+    Margin="-250,20,0,0" />
+
+        <BoxView x:Name="GreenBox" 
+                    BackgroundColor="Transparent"
+   HeightRequest="100" 
+    WidthRequest="100" 
+   Color="Black" 
+   HorizontalOptions="Center" 
+   Margin="0,-100,0,0" />
+
+        <BoxView x:Name="BlueBox" 
+                    BackgroundColor="Transparent"
+   HeightRequest="100" 
+    WidthRequest="100" 
+    Color="Black" 
+   HorizontalOptions="Center" 
+    Margin="250,-100,0,0" />
+
+</VerticalStackLayout>
+        
+        <Label x:Name="redLabel" TextColor="Red" Text="Red = 00" HorizontalOptions="Center" />
+        <Slider x:Name="redSlider" Minimum="0" Maximum="255" 
+                ValueChanged="OnSliderValueChanged" ThumbColor="Red" MinimumTrackColor="Red"
+               
+            
+              
+               
+         
+
+            />
+
+        <Label x:Name="greenLabel" TextColor="Green" Text="Green = 00" HorizontalOptions="Center" />
+        <Slider x:Name="greenSlider" Minimum="0" Maximum="255" 
+                ValueChanged="OnSliderValueChanged" ThumbColor="Green" MinimumTrackColor="Green" />
+
+        <Label x:Name="blueLabel" TextColor="Blue" Text="Blue = 00" HorizontalOptions="Center" />
+        <Slider x:Name="blueSlider" Minimum="0" Maximum="255" 
+                ValueChanged="OnSliderValueChanged" ThumbColor="Blue"  MinimumTrackColor="Blue"/>
+
+        <Label x:Name="SizeLabel" Text="Size = 00" HorizontalOptions="Center" />
+        <Slider x:Name="SizeSlider" Minimum="0" Maximum="255" 
+          ValueChanged="OnSliderValueChanged" />
+
+        <Label x:Name="SmoothLabel" Text="Smoothness = 00" HorizontalOptions="Center" />
+        <Slider x:Name="SmoothSlider" Minimum="0" Maximum="255" 
+    ValueChanged="OnSliderValueChanged" />
+
+        <Button x:Name="Animations" Text="Randomiser"
+         
+          Margin="5,5,5,5" Width="150" 
+          ></Button>
+
+
+
+
+        <Frame x:Name="boxView" 
+              
+                 Color="Black" 
+                 
+                 HorizontalOptions="Center" 
+                 Margin="0,-10,0,0" />
+        
+
+    </VerticalStackLayout>
+</ContentPage>

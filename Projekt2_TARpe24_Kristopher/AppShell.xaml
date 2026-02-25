@@ -54,4 +54,13 @@
   ContentTemplate="{DataTemplate local:StepperSliderPage}"
   Route="Index" />
 
+    <ShellContent
+  Title="StepperSlidePage"
+  ContentTemplate="{DataTemplate local:RGB}"
+  Route="Index" />
+    <ShellContent
+  Title="Lumememm"
+  ContentTemplate="{DataTemplate local:Lumememm}"
+  Route="Index" />
+
 </Shell>
