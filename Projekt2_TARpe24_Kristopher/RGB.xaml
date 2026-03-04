@@ -34,14 +34,7 @@
         
         <Label x:Name="redLabel" TextColor="Red" Text="Red = 00" HorizontalOptions="Center" />
         <Slider x:Name="redSlider" Minimum="0" Maximum="255" 
-                ValueChanged="OnSliderValueChanged" ThumbColor="Red" MinimumTrackColor="Red"
-               
-            
-              
-               
-         
-
-            />
+                ValueChanged="OnSliderValueChanged" ThumbColor="Red" MinimumTrackColor="Red"/>
 
         <Label x:Name="greenLabel" TextColor="Green" Text="Green = 00" HorizontalOptions="Center" />
         <Slider x:Name="greenSlider" Minimum="0" Maximum="255" 

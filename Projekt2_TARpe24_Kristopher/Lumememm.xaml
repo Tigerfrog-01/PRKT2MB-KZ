@@ -7,66 +7,86 @@
 
 
 
-    <Grid BackgroundColor="SkyBlue">
+    <Grid x:Name="Background" BackgroundColor="SkyBlue" RowDefinitions="Auto, Auto, Auto, Auto, Auto, 20">
 
-        <Grid.RowDefinitions>
+        <Ellipse x:Name="Paike" 
+             Grid.RowSpan="6"
+             Opacity="0" WidthRequest="150" HeightRequest="150" 
+             Fill="Yellow" VerticalOptions="Start" HorizontalOptions="End" Margin="20" />
 
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+        <VerticalStackLayout Grid.Row="0" Margin="20" Spacing="5">
+            <Label x:Name="Joulud" Text="Häid Jõule" FontSize="20"  FontAttributes="Bold" TextColor="Red"  HorizontalOptions="Center" IsVisible="False"></Label>
+            <Label Text="Sulata lumememm:" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Slider x:Name="MeltSlider" 
+                Minimum="0" 
+                Maximum="1" 
+                ValueChanged="OnSliderValueChanged" 
+                MaximumTrackColor="White" 
+                MinimumTrackColor="Orange" />
+            <HorizontalStackLayout >
+               
+                <Button x:Name="Kaota" HeightRequest="10" WidthRequest="10" Text="☀️" Clicked="KaotaAra"/>
+                <Button x:Name="Naita" HeightRequest="10" WidthRequest="10" Text="❄️" Clicked="NaitaNuud"/>
+                <Button x:Name="VarviSuva"  HeightRequest="10" WidthRequest="10" Text="🎲" Clicked="Varvi"/>
+                <Button x:Name="VarviMind"  HeightRequest="10" WidthRequest="10" Text="🎨" Clicked="ValiVarv"/>
+                <Button x:Name="Tantsi"  HeightRequest="10" WidthRequest="10" Text="🪩" Clicked="Tantsinuud"/>
+                <Button x:Name="Oo"  HeightRequest="10" WidthRequest="10" Text="🌙" Clicked="Oonuud"/>
+                <Button x:Name="Tekst"  HeightRequest="10" WidthRequest="10" Text="🎅" Clicked="Tekstnuud"/>
 
-            <RowDefinition Height="20" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout x:Name="ColorPanel"  IsVisible="False" HorizontalOptions="Center" Spacing="-100" HeightRequest="200" Margin="0,20">
 
-        </Grid.RowDefinitions>
+            <Slider x:Name="redSlider" Minimum="0" Maximum="255" WidthRequest="150" 
+            Rotation="-90" VerticalOptions="Center" ThumbColor="Red" 
+            MinimumTrackColor="Red" ValueChanged="OnColorSliderChanged" />
 
-        <Button x:Name="Melt" HeightRequest="10" WidthRequest="100" Text="Sulata"></Button>
-        <Button x:Name="UnMelt" HeightRequest="10" WidthRequest="100" Text="Sulata"></Button>
-        <BoxView x:Name="Paike" Opacity="0" WidthRequest="150" HeightRequest="150" CornerRadius="50" BackgroundColor="Yellow"></BoxView>
+            <Slider x:Name="blueSlider" Minimum="0" Maximum="255" WidthRequest="150" 
+            Rotation="-90" VerticalOptions="Center" ThumbColor="Blue" 
+            MinimumTrackColor="Blue" ValueChanged="OnColorSliderChanged"/>
 
+            <Slider x:Name="greenSlider" Minimum="0" Maximum="255" WidthRequest="150" 
+            Rotation="-90" VerticalOptions="Center" ThumbColor="Green" 
+            MinimumTrackColor="Green" ValueChanged="OnColorSliderChanged"/>
 
-        <BoxView x:Name="Grid1" Grid.Row="1" HeightRequest="100" WidthRequest="100" BackgroundColor="Transparent" Color="Grey" HorizontalOptions="Center" CornerRadius="15" />
-
-        <BoxView x:Name="Grid2" Grid.Row="2" CornerRadius="75" HeightRequest="150" WidthRequest="150" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" />
-
-        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="40" Margin="0,0,0,20">
-
-            <Frame BackgroundColor="Black" CornerRadius="25" HeightRequest="30" WidthRequest="30" />
-
-            <Frame BackgroundColor="Black" CornerRadius="25" HeightRequest="30" WidthRequest="30" />
-        </HorizontalStackLayout>
-
-        <BoxView x:Name="Grid3" Grid.Row="3" CornerRadius="100" HeightRequest="200" WidthRequest="200" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" Margin="0,-15,0,0" />
-
-        <VerticalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
-
-            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
-            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
-            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
-
-
-        </VerticalStackLayout>
-
-        <BoxView x:Name="Grid4" Grid.Row="4" CornerRadius="125" HeightRequest="250" WidthRequest="250" BackgroundColor="Transparent" Color="White" HorizontalOptions="Center" Margin="0,-25,0,0" />
-        <VerticalStackLayout Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Start" Spacing="15">
-
-
-            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
-            <Frame BackgroundColor="Black" CornerRadius="10" HeightRequest="25" WidthRequest="25" />
-
-
-
+            </HorizontalStackLayout>
 
 
         </VerticalStackLayout>
 
+        <VerticalStackLayout x:Name="HatSection" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End" Spacing="0">
+            <Border x:Name="hat" BackgroundColor="DimGray" WidthRequest="75" HeightRequest="100" StrokeShape="RoundRectangle 5,5,0,0" StrokeThickness="0" />
+        </VerticalStackLayout>
+
+        <Grid x:Name="HeadSection" Grid.Row="2" HorizontalOptions="Center">
+            <Ellipse x:Name="head" Fill="White" HeightRequest="150" WidthRequest="150" />
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" >
+                <Ellipse x:Name="eye1" Fill="Black" HeightRequest="30" WidthRequest="30" Margin="0,0,0,20" />
+                <Polygon x:Name="carrot" Points="20,0 0,3, 10,50" Stroke="Black" Fill="DarkOrange"></Polygon>
+                <Ellipse x:Name="eye2" Fill="Black" HeightRequest="30" WidthRequest="30" Margin="0,0,0,20"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <Grid x:Name="MidSection" Grid.Row="3" HorizontalOptions="Center" Margin="0,-15,0,0">
+            <Ellipse x:Name="upperbody" Fill="White" HeightRequest="200" WidthRequest="200" />
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
+                <Ellipse x:Name="button1" Fill="Black" HeightRequest="30" WidthRequest="30" />
+                <Ellipse x:Name="button2" Fill="Black" HeightRequest="30" WidthRequest="30" />
+                <Ellipse x:Name="button3" Fill="Black" HeightRequest="30" WidthRequest="30" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid x:Name="BottomSection" Grid.Row="4" HorizontalOptions="Center" Margin="0,-25,0,0">
+            <Ellipse x:Name="lowerbody" Fill="White" HeightRequest="250" WidthRequest="250" />
+            <VerticalStackLayout>
+                <Ellipse x:Name="button4" Fill="Black" HeightRequest="30" WidthRequest="30" Margin="1,10,1,1" />
+                <Ellipse x:Name="button5" Fill="Black" HeightRequest="30" WidthRequest="30" Margin="1,10,1,1" />
+            </VerticalStackLayout>
+        </Grid>
     </Grid>
 
 
 
-
-        
 
 </ContentPage>
     
