@@ -62,5 +62,15 @@
   Title="Lumememm"
   ContentTemplate="{DataTemplate local:Lumememm}"
   Route="Index" />
+    <ShellContent
+  Title="Popup"
+  ContentTemplate="{DataTemplate local:Popup}"
+  Route="Index" />
+    <ShellContent
+Title="PopupProject"
+ContentTemplate="{DataTemplate local:PopUpProject}"
+Route="Index" />
+
+
 
 </Shell>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.PopUpProject"
+             Title="PopUpProject">
+    <VerticalStackLayout Spacing="20" Padding="0, 50, 0, 0">
+
+    
+
+     
+        <Button Text="Mõista Mõista"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Clicked="AlertListButton_Clicked" />
+        <Button Text="Rebus"
+         HorizontalOptions="Center"
+         Clicked="AlertQuestButton_Clicked" />
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

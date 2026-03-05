@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.Popup"
+             Title="Popup">
+    <VerticalStackLayout Spacing="20" Padding="0, 50, 0, 0">
+
+        <Button Text="Teade"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Clicked="AlertButton_Clicked" />
+
+        <Button Text="Jah või ei"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Clicked="AlertYesNoButton_Clicked" />
+
+        <Button Text="Valik"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Clicked="AlertListButton_Clicked" />
+
+        <Button Text="Küsimus"
+                HorizontalOptions="Center"
+                Clicked="AlertQuestButton_Clicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
