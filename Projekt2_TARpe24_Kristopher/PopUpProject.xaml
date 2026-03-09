@@ -5,9 +5,20 @@
              Title="PopUpProject">
     <VerticalStackLayout Spacing="20" Padding="0, 50, 0, 0">
 
-    
 
-     
+
+        <Button Text="Sisesta nimi"
+          HorizontalOptions="Center"
+          Clicked="NimiButton_Clicked" />
+
+        <Button Text="Sisesta lemmik värv"
+   HorizontalOptions="Center"
+   Clicked="VarvButton_Clicked" />
+        <Button Text="Kalapulk"
+HorizontalOptions="Center"
+Clicked="KalapulkButton_Clicked" />
+
+
         <Button Text="Mõista Mõista"
                 VerticalOptions="Start"
                 HorizontalOptions="Center"
@@ -15,6 +26,7 @@
         <Button Text="Rebus"
          HorizontalOptions="Center"
          Clicked="AlertQuestButton_Clicked" />
+        
 
 
 
