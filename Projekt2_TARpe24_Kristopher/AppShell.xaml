@@ -10,7 +10,7 @@
         <Label
             Text="näidis"
             FontFamily="luffio Regular 400"
-            FontSize="title"
+            FontSize="Small"
             TextColor="DarkGoldenrod"
             VerticalTextAlignment="Center"
             VerticalOptions="Center"
@@ -69,6 +69,14 @@
     <ShellContent
 Title="PopupProject"
 ContentTemplate="{DataTemplate local:PopUpProject}"
+Route="Index" />
+    <ShellContent
+Title="TripsTraps"
+ContentTemplate="{DataTemplate local:TripsTraps}"
+Route="Index" />
+    <ShellContent
+Title="PickerImagePage"
+ContentTemplate="{DataTemplate local:PickerImagePage}"
 Route="Index" />
 
 

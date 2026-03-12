@@ -10,10 +10,13 @@
         <Button Text="Sisesta nimi"
           HorizontalOptions="Center"
           Clicked="NimiButton_Clicked" />
+        
+        
 
         <Button Text="Sisesta lemmik värv"
    HorizontalOptions="Center"
    Clicked="VarvButton_Clicked" />
+        
         <Button Text="Kalapulk"
 HorizontalOptions="Center"
 Clicked="KalapulkButton_Clicked" />
@@ -23,9 +26,11 @@ Clicked="KalapulkButton_Clicked" />
                 VerticalOptions="Start"
                 HorizontalOptions="Center"
                 Clicked="AlertListButton_Clicked" />
+        
         <Button Text="Rebus"
          HorizontalOptions="Center"
          Clicked="AlertQuestButton_Clicked" />
+        
         
 
 

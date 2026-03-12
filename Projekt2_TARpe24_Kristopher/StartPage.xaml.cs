@@ -22,7 +22,9 @@ public partial class StartPage : ContentPage
             ("Stepper/Slide", new StepperSlidePage()),
             ("RGB", new RGB()),
             ("Lumememm", new Lumememm()),
-             ("PopUpProject", new PopUpProject())
+             ("PopUpProject", new PopUpProject()),
+            ("PickerImagePage", new PickerImagePage()),
+                ("TripsTraps", new TripsTraps())
         }}
     };
 

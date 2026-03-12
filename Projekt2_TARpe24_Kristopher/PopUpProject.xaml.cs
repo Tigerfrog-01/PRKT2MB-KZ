@@ -20,75 +20,138 @@ public partial class PopUpProject : ContentPage
         string varv = await DisplayPromptAsync("Tere!!!" + name, "Mis su lemmik värv on?", placeholder: "Vali värv!❤️💙💚💛");
         if (varv == "Roheline" || varv == "roheline")
         {
+            BackgroundImageSource = null;
             BackgroundColor = Colors.Green;
         }
         if (varv == "Punane" || varv == "punane")
         {
+            BackgroundImageSource = null;
             BackgroundColor = Colors.Red;
         }
         if (varv == "Kollane" || varv == "kollane")
         {
+            BackgroundImageSource = null;
             BackgroundColor = Colors.Yellow;
         }
         if (varv == "Sinine" || varv == "sinine")
         {
+            BackgroundImageSource = null;
             BackgroundColor = Colors.Blue;
         }
 
     }
     private async void KalapulkButton_Clicked(object sender, EventArgs e)
     {
-        bool result = await DisplayAlertAsync("Kalapulk on parim?", "Kas kalapulk on parim??", "KALAPULK ON PARIMMM", "Kalapulk ei ole parim :c");
-        if (result == true)
-        {
-            BackgroundImageSource = "kalapulk.png";
-            BackgroundColor = Colors.Yellow;
-        }
-        else 
-        {
-            BackgroundColor = Colors.Red;
-        }
+    
+        bool result = await DisplayAlert("Kalapulk on parim?", "Kas kalapulk on parim??", "KALAPULK ON PARIMMM", "Kalapulk ei ole parim :c");
+        if (result)
+            {
+                BackgroundImageSource = "kalapulk1.png";
+            }
+            else
+            {
 
+                BackgroundImageSource = "angryface.png";
+
+            }
+     
+       
+            
+      
     }
     private async void AlertListButton_Clicked(object? sender, EventArgs e)
     {
+      
+        var riddles = new List<Riddle>
+    {
+        new Riddle(" Seest siiru-viiruline, pealt kullakarvaline", "Sibul", "Päike", "Sibul", "Tiiger"),
+        new Riddle(" Neli andjat, neli kandjat, kaks koeratõrjujat, üks parmupiits?", "Lehm", "Lehm", "Siga", "Kits"),
+        new Riddle(" Hobu hirnub Hiiumaal, hääl kuulub meie maile?", "Äike", "Tuul", "Äike", "Orkaan"),
+        new Riddle( " Punane pullike, jõhvist lõake?", "Jõhvikas", "Jõhvikas", "Peet", "Venelane"),
+        new Riddle(" Mustem kui süsi, valgem kui lumi, kõrgem kui kirik, madalam kui regi?", "Harakas", "Vares", "Harakas", "Ronk")
+    };
 
-        string action = await DisplayActionSheetAsync("Seest siiru-viiruline, pealt kullakarvaline", "Loobu", "Kustutada", "Päike", "Sibul", "Tiiger");
+        var random = new Random();
+        var selectedRiddle = riddles[random.Next(riddles.Count)];
 
-        if (action == "Päike" )
+      
+        string action = await DisplayActionSheetAsync(
+            selectedRiddle.Question,
+            "Loobu",
+            "Kustutada",
+            selectedRiddle.Options
+        );
+
+        
+        if (action == "Loobu" || action == "Kustutada" || action == null) return;
+
+        if (action == selectedRiddle.CorrectAnswer)
         {
-            await DisplayAlertAsync("Sinu valik oli vale " + name, "Sa valisid vastuse: " + action, "Ok");
+            await DisplayAlertAsync($"Õige, palju õnne {name}!", $"Sa valisid: {action}", "Ok");
         }
-        if (action == "Sibul")
+        else
         {
-            await DisplayAlertAsync("Sinu valik oli õige, palju õnne! " + name, "Sa valisid vastuse: " + action, "Ok");
-        }
-        if (action == "Tiiger")
-        {
-            await DisplayAlertAsync("Sinu valik oli vale " + name , "Sa valisid vastuse: " + action, "Ok");
+            await DisplayAlertAsync($"Vale vastus {name}!", $"Sa valisid: {action}. Õige oli: {selectedRiddle.CorrectAnswer}", "Ok");
         }
     }
     private async void AlertQuestButton_Clicked(object sender, EventArgs e)
     {
-        string result1 = await DisplayPromptAsync("Vasta vastus selle rebusele " + name, "❄️ + 👨", placeholder: "Talv");
+   
+        var rebusList = new List<Rebus>
+    {
+        new Rebus("❄️ + 👨", "Talv", "Snowman", "lumemees"),
+        new Rebus("Mon + 🔑", "Džungel", "Monkey"),
+        new Rebus("Ma + ✅", "Kodu", "Maja"),
+        new Rebus("Öö + 🦅", "Tark loom", "Öökull"),
+        new Rebus("🐟 + 🪄", "KÕIGE PARIM ASI MAAILMAS", "Kalapulk")
+    };
 
-        if (result1 == "Snowman" || result1 == "snowman" || result1 == "lumemees" || result1 == "Lumemees")
+    
+        var random = new Random();
+        var selected = rebusList[random.Next(rebusList.Count)];
+
+     
+        string result = await DisplayPromptAsync("Vasta vastus selle rebusele " + name, selected.EmojiPrompt, placeholder: selected.Placeholder);
+
+       
+        if (string.IsNullOrWhiteSpace(result)) return;
+
+      
+        if (selected.ValidAnswers.Contains(result.Trim().ToLower()))
         {
-            await DisplayAlertAsync("Sinu valik oli Õige " + name, "Sa valisid vastuse: " + result1, "Ok");
+            await DisplayAlertAsync($"Sinu valik oli Õige {name}", $"Sa valisid vastuse: {result}", "Ok");
         }
         else
         {
-            await DisplayAlertAsync("Sinu valik oli VALE " + name, "Sa valisid vastuse: " + result1, "Ok");
+            await DisplayAlertAsync($"Sinu valik oli VALE {name}", $"Sa valisid vastuse: {result}", "Ok");
         }
-        string result2 = await DisplayPromptAsync("Vasta vastus selle rebusele", "Mon + 🔑", placeholder: "Džungel");
+    }
+    public class Riddle
+    {
+        public string Question { get; set; }
+        public string CorrectAnswer { get; set; }
+        public string[] Options { get; set; }
 
-        if (result2 == "Monkey" || result2 == "monkey")
+        public Riddle(string q, string correct, params string[] options)
         {
-            await DisplayAlertAsync("Sinu valik oli Õige " + name, "Sa valisid vastuse: " + result2, "Ok");
+            Question = q;
+            CorrectAnswer = correct;
+            Options = options;
         }
-        else
+    }
+
+    public class Rebus
+    {
+        public string EmojiPrompt { get; set; }
+        public string Placeholder { get; set; }
+        public string[] ValidAnswers { get; set; }
+
+        public Rebus(string prompt, string placeholder, params string[] answers)
         {
-            await DisplayAlertAsync("Sinu valik oli VALE " + name, "Sa valisid vastuse: " + result2, "Ok");
+            EmojiPrompt = prompt;
+            Placeholder = placeholder;
+       
+            ValidAnswers = answers.Select(a => a.ToLower()).ToArray();
         }
     }
 }
