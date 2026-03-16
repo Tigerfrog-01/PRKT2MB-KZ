@@ -79,6 +79,11 @@ Title="PickerImagePage"
 ContentTemplate="{DataTemplate local:PickerImagePage}"
 Route="Index" />
 
+    <ShellContent
+Title="TripsPea"
+ContentTemplate="{DataTemplate local:TripsPea}"
+Route="Index" />
+
 
 
 </Shell>

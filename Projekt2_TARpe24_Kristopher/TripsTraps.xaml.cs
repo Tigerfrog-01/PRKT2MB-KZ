@@ -1,3 +1,4 @@
+
 using Microsoft.Maui.Graphics.Text;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -12,7 +13,10 @@ public partial class TripsTraps : ContentPage
     BoxView[,] kasteMaatriks = new BoxView[3, 3];
     Label KesOnKes;
     Label pealkiri;
-    
+
+ 
+
+  
 
     int turn = 1;
     int moveCount = 0;
@@ -22,11 +26,35 @@ public partial class TripsTraps : ContentPage
     {
     
             InitializeComponent();
-      
+
+     
+
+
+
         BackgroundColor = Colors.White;
         gr3x3 = Täida_gr3x3();
         gr3x3.Padding = 10;
-        
+
+        Button tagasiNupp = new Button
+        {
+            Text = "Tagasi Menüüsse",
+            FontSize = 20,
+            BackgroundColor = Colors.Beige,
+            TextColor = Colors.Chocolate,
+            CornerRadius = 10,
+            HeightRequest = 50,
+            WidthRequest = 200,
+            HorizontalOptions = LayoutOptions.Center,
+            Margin = new Thickness(0, 20, 0, 0)
+        };
+        tagasiNupp.Clicked += async (s, e) =>
+        {
+            await Navigation.PushAsync(new TripsPea());
+        };
+
+   
+        MainStack.Children.Add(tagasiNupp);
+
         pealkiri = new Label
         {
             Text = "Trips Traps Trull",
@@ -45,6 +73,27 @@ public partial class TripsTraps : ContentPage
         MainStack.Children.Add(pealkiri);
         MainStack.Children.Add(KesOnKes);
         MainStack.Children.Add(gr3x3);
+
+
+    }
+
+    public void ApplyTheme(Color backColor, Color textColor)
+    {
+        this.BackgroundColor = backColor;
+        if (pealkiri != null) pealkiri.TextColor = textColor;
+        if (KesOnKes != null) KesOnKes.TextColor = textColor;
+
+     
+        for (int r = 0; r < 3; r++)
+        {
+            for (int c = 0; c < 3; c++)
+            {
+                if (board[r, c] == 0) 
+                {
+                    kasteMaatriks[r, c].BackgroundColor = (backColor == Colors.White) ? Colors.Gray : Colors.White;
+                }
+            }
+        }
     }
 
     private Grid Täida_gr3x3()
@@ -193,8 +242,15 @@ public partial class TripsTraps : ContentPage
                 }
             }
         }
+      
 
     }
+
+
+
+
+
+
 
 
 }

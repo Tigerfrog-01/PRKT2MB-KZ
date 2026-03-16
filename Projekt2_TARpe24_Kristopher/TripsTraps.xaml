@@ -5,16 +5,7 @@
              Title="TripsTraps">
     <VerticalStackLayout x:Name="MainStack">
 
-        <Button
-            x:Name="Dark"
-            Text="🌙"
-        HorizontalOptions="Center"
-        Clicked="DarkMode" />
-        <Button
-         x:Name="Light"
-        Text="☀️"
-        HorizontalOptions="Center"
-        Clicked="LightMode" />
+  
 
 
     </VerticalStackLayout>

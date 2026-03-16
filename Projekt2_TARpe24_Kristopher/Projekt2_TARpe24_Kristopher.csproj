@@ -97,6 +97,9 @@
 	  <MauiXaml Update="TimerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="TripsPea.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="TripsTraps.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
