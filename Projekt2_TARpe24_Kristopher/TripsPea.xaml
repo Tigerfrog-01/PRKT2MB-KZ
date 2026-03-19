@@ -12,26 +12,12 @@
                              VerticalOptions="Center">
 
             
+
+        
+
             
             
-            <Button Text="Seaded"
-                    FontSize="22"
-                    BackgroundColor="#A0522D"
-                    TextColor="White"
-                    HeightRequest="60"
-                    WidthRequest="250"
-                    CornerRadius="10"
-                    Clicked="OnSettingsClicked" />
-
-            <Button Text="Edetabel"
-                    FontSize="22"
-                    BackgroundColor="#A0522D"
-                    TextColor="White"
-                    HeightRequest="60"
-                    WidthRequest="250"
-                    CornerRadius="10"
-                    Clicked="OnLeaderboardClicked" />
-
+           
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

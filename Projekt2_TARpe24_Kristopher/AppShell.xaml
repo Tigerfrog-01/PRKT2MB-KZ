@@ -83,6 +83,10 @@ Route="Index" />
 Title="TripsPea"
 ContentTemplate="{DataTemplate local:TripsPea}"
 Route="Index" />
+    <ShellContent
+Title="TablePage"
+ContentTemplate="{DataTemplate local:Table_Page}"
+Route="Index" />
 
 
 

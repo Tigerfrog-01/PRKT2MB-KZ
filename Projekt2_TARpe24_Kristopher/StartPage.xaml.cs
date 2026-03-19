@@ -11,7 +11,8 @@ public partial class StartPage : ContentPage
         { "Baaslehed", new List<(string, ContentPage)> {
             ("Tekst", new TextPage()),
             ("Kujund", new FigurePage()),
-            ("Popup", new Popup())
+            ("Popup", new Popup()),
+             ("TablePage", new Table_Page())
         }},
         { "Funktsioonid", new List<(string, ContentPage)> {
             ("Timer", new TimerPage()),

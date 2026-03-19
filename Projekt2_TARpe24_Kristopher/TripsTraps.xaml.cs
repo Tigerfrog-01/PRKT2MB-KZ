@@ -7,6 +7,10 @@ namespace Projekt2_TARpe24_Kristopher;
 public partial class TripsTraps : ContentPage
 {
 
+    string player1Name;
+    string player2Name;
+    bool p1IsX; 
+
     Grid gr3x3;
     int[,] board = new int[3, 3];
 
@@ -22,18 +26,28 @@ public partial class TripsTraps : ContentPage
     int moveCount = 0;
     bool gameOver = false;
 
-    public TripsTraps()
+    public TripsTraps(string p1, string p2, bool p1StartsAsX)
     {
     
             InitializeComponent();
 
-     
+        player1Name = p1;
+        player2Name = p2;
+        p1IsX = p1StartsAsX;
 
+        KesOnKes = new Label
+        {
+            Text = $"{player1Name} (X) vs {player2Name} (O)",
+            HorizontalOptions = LayoutOptions.Center,
+            FontSize = 20
+        };
 
 
         BackgroundColor = Colors.White;
         gr3x3 = Täida_gr3x3();
         gr3x3.Padding = 10;
+
+         
 
         Button tagasiNupp = new Button
         {
@@ -76,7 +90,7 @@ public partial class TripsTraps : ContentPage
 
 
     }
-
+    public TripsTraps() : this("Külaline", "Robot", true) { }
     public void ApplyTheme(Color backColor, Color textColor)
     {
         this.BackgroundColor = backColor;
@@ -138,15 +152,36 @@ public partial class TripsTraps : ContentPage
                     board[rida, veerg] = turn;
                     kast.BackgroundColor = (turn == 1) ? Colors.Red : Colors.Blue;
                     moveCount++;
-                    
+
 
                     if (CheckForWin())
                     {
                         gameOver = true;
-                        await DisplayAlert("Võit!", $"Mängija {turn} võitis!", "Uus mäng");
+                        string winnerName = "";
+
+                        if (turn == 1)
+                        {
+                            winnerName = p1IsX ? player1Name : player2Name;
+                        }
+                        else
+                        {
+                            winnerName = p1IsX ? player2Name : player1Name;
+                        }
+
+
+                        if (winnerName != "Robot")
+                        {
+                            int currentWins = Preferences.Default.Get($"Wins_{winnerName}", 0);
+                            Preferences.Default.Set($"Wins_{winnerName}", currentWins + 1);
+                        }
+
+                        await DisplayAlert("Võit!", $"{winnerName} võitis!", "Uus mäng");
                         ResetGame();
                         return;
+
                     }
+
+
                     else if (moveCount == 9)
                     {
                         await DisplayAlert("Viik!", "Mäng jäi viiki!", "Uus mäng");
@@ -167,9 +202,14 @@ public partial class TripsTraps : ContentPage
                     {
                         KesOnKes.Text = "Mängija 2 kord (Sinine)";
                     }
-             
 
-                 
+                    if (!gameOver && player2Name == "Robot" && turn == 2)
+                    {
+                        await RobotMakeMove();
+                    }
+
+
+
                 };
 
                 kast.GestureRecognizers.Add(tap);
@@ -209,41 +249,55 @@ public partial class TripsTraps : ContentPage
             }
         }
     }
-    private async void DarkMode(object sender, EventArgs e)
-    {
-        BackgroundColor = Color.FromHex("#2C4251");
-        KesOnKes.TextColor = Colors.White;
-        pealkiri.TextColor = Colors.White;
-        for (int r = 0; r < 3; r++)
-        {
-            for (int c = 0; c < 3; c++)
-            {
-          
-                if (board[r, c] == 0)
-                {
-                    kasteMaatriks[r, c].BackgroundColor = Colors.White;
-                }
-            }
-        }
-    }
-    private async void LightMode(object sender, EventArgs e)
-    {
-        BackgroundColor = Colors.White;
-        KesOnKes.TextColor = Colors.Black;
-        pealkiri.TextColor = Colors.Black;
-        for (int r = 0; r < 3; r++)
-        {
-            for (int c = 0; c < 3; c++)
-            {
-               
-                if (board[r, c] == 0)
-                {
-                    kasteMaatriks[r, c].BackgroundColor = Colors.Gray;
-                }
-            }
-        }
-      
+    
+  
 
+    private async Task RobotMakeMove()
+    {
+        
+        await Task.Delay(600);
+
+       
+        var emptySpots = new List<(int r, int c)>();
+        for (int r = 0; r < 3; r++)
+        {
+            for (int c = 0; c < 3; c++)
+            {
+                if (board[r, c] == 0)
+                    emptySpots.Add((r, c));
+            }
+        }
+
+        if (emptySpots.Count > 0)
+        {
+           
+            var random = new Random();
+            var (r, c) = emptySpots[random.Next(emptySpots.Count)];
+
+          
+            board[r, c] = 2; 
+            kasteMaatriks[r, c].BackgroundColor = Colors.Blue;
+            moveCount++;
+
+        
+            if (CheckForWin())
+            {
+                gameOver = true;
+                await DisplayAlert("Oih!", "Robot võitis!", "Uus mäng");
+                ResetGame();
+            }
+            else if (moveCount == 9)
+            {
+                await DisplayAlert("Viik!", "Mäng jäi viiki!", "Uus mäng");
+                ResetGame();
+            }
+            else
+            {
+              
+                turn = 1;
+                KesOnKes.Text = $"{player1Name} kord (Punane)";
+            }
+        }
     }
 
 
