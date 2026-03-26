@@ -87,6 +87,14 @@ Route="Index" />
 Title="TablePage"
 ContentTemplate="{DataTemplate local:Table_Page}"
 Route="Index" />
+    <ShellContent
+Title="Phone"
+ContentTemplate="{DataTemplate local:Phone}"
+Route="Index" />
+    <ShellContent
+Title="MessageLogPage"
+ContentTemplate="{DataTemplate local:MessageLogPage}"
+Route="Index" />
 
 
 

@@ -7,7 +7,8 @@ namespace Projekt2_TARpe24_Kristopher
         public App()
         {
             InitializeComponent();
-            
+       
+
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

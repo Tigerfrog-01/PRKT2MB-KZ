@@ -25,7 +25,8 @@ public partial class StartPage : ContentPage
             ("Lumememm", new Lumememm()),
              ("PopUpProject", new PopUpProject()),
             ("PickerImagePage", new PickerImagePage()),
-                ("TripsTraps", new TripsPea())
+                ("TripsTraps", new TripsPea()),
+            ("Phone", new Phone())
         }}
     };
 
