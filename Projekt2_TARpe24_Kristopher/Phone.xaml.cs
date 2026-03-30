@@ -1,5 +1,3 @@
-using Microsoft.Maui.Controls;
-
 namespace Projekt2_TARpe24_Kristopher;
 
 public partial class Phone : ContentPage
@@ -7,6 +5,7 @@ public partial class Phone : ContentPage
     EntryCell phoneCell;
     EntryCell emailCell;
     TableSection listSection;
+    string defaultImage = "kalapulk1.png";
 
     public Phone()
     {
@@ -86,6 +85,11 @@ public partial class Phone : ContentPage
 
         this.Content = myTable;
 
+     
+
+
+
+
         string savedData = Preferences.Get("ContactList", "");
         var contacts = savedData.Split('|', StringSplitOptions.RemoveEmptyEntries);
         foreach (var c in contacts)
@@ -93,10 +97,13 @@ public partial class Phone : ContentPage
             var parts = c.Split(';');
             if (parts.Length >= 2)
             {
-                listSection.Add(CreateContactCell(parts[0], parts[1]));
+              
+                string img = parts.Length >= 3 ? parts[2] : defaultImage;
+                listSection.Add(CreateContactCell(parts[0], parts[1], img));
             }
         }
     }
+
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
@@ -105,19 +112,31 @@ public partial class Phone : ContentPage
 
         if (string.IsNullOrWhiteSpace(tel)) return;
 
-        var newContact = CreateContactCell(tel, email);
+        string imagePath = defaultImage;
+        try
+        {
+            var result = await FilePicker.Default.PickAsync(new PickOptions
+            {
+                PickerTitle = "Vali profiilipilt",
+                FileTypes = FilePickerFileType.Images
+            });
+            if (result != null) imagePath = result.FullPath;
+        }
+        catch { }
+
+        var newContact = CreateContactCell(tel, email, imagePath);
         listSection.Add(newContact);
 
         string currentList = Preferences.Get("ContactList", "");
-        Preferences.Set("ContactList", currentList + $"{tel};{email}|");
+        Preferences.Set("ContactList", currentList + $"{tel};{email};{imagePath}|");
 
         phoneCell.Text = "";
         emailCell.Text = "";
     }
 
-    private TextCell CreateContactCell(string tel, string email)
+    private ImageCell CreateContactCell(string tel, string email, string imagePath)
     {
-        var cell = new TextCell { Text = tel, Detail = email, TextColor = Colors.White, DetailColor = Colors.White };
+        var cell = new ImageCell { Text = tel, Detail = email,ImageSource = imagePath, TextColor = Colors.White, DetailColor = Colors.White };
         cell.Tapped += async (s, args) =>
         {
             string display = string.IsNullOrWhiteSpace(email) ? tel : email;
