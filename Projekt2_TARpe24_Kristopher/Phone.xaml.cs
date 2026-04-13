@@ -141,17 +141,26 @@ public partial class Phone : ContentPage
         {
             string display = string.IsNullOrWhiteSpace(email) ? tel : email;
 
-            string action = await DisplayActionSheet(display, "Tagasi", null, "Sõnumid", "Kustuta");
+            string action = await DisplayActionSheet(display, "Tagasi", null, "Sõnumid","Telefon", "Kustuta");
 
             if (action == "Sõnumid")
             {
                 string target = string.IsNullOrWhiteSpace(email) ? tel : email;
                 await Navigation.PushAsync(new MessageLogPage(target));
             }
+            else if (action == "Telefon")
+            {
+               
+                await Navigation.PushAsync(new CallingPage(tel, imagePath));
+            }
             else if (action == "Kustuta")
             {
                 listSection.Remove(cell);
-            
+                string savedData = Preferences.Get("ContactList", "");
+                string lineToDelete = $"{tel};{email};{imagePath}|";
+                string updatedData = savedData.Replace(lineToDelete, "");
+                Preferences.Set("ContactList", updatedData);
+
             }
         };
         return cell;

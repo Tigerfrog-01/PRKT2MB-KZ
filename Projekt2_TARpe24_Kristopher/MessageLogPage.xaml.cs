@@ -8,11 +8,12 @@ public partial class MessageLogPage : ContentPage
 
     public MessageLogPage(string contactId)
     {
-        _contactId = contactId; 
+        _contactId = contactId;
         Title = $"Vestlus: {contactId}";
 
         _messageDisplay = new Editor { IsReadOnly = true, FontSize = 14 };
         _inputField = new Entry { Placeholder = "Kirjuta sõnum...", HorizontalOptions = LayoutOptions.FillAndExpand };
+
 
         var sendBtn = new Button { Text = "Saada" };
         sendBtn.Clicked += OnSendClicked;
@@ -39,46 +40,64 @@ public partial class MessageLogPage : ContentPage
         var smsBtn = new Button
         {
             Text = "Vali ja Saada SMS",
-            BackgroundColor = Colors.Green 
+            BackgroundColor = Colors.Green
         };
         smsBtn.Clicked += Saada_Valitud_Sõnum_SMS_Clicked;
 
         var christmasBtn = new Button { Text = "Saada Jõulusõnum", BackgroundColor = Colors.Red, TextColor = Colors.White };
         christmasBtn.Clicked += Saada_Joulusõnum_Clicked;
 
-        var birthdayBtn = new Button { Text = "Saada Sünnipäeva sõnum", BackgroundColor = Colors.Yellow, TextColor = Colors.White };
+        var birthdayBtn = new Button { Text = "Saada Sünnipäeva sõnum", BackgroundColor = Colors.Gold, TextColor = Colors.White };
         birthdayBtn.Clicked += Saada_Sünnipäevasõnum_Clicked;
 
         var funeralBtn = new Button { Text = "Saada matuse sõnum", BackgroundColor = Colors.Black, TextColor = Colors.White };
         funeralBtn.Clicked += Saada_Matusesõnum_Clicked;
 
-        var greetingBtn = new Button { Text = "Saada tervitus sõnum", BackgroundColor = Colors.Red, TextColor = Colors.White };
+        var greetingBtn = new Button { Text = "Saada tervitus sõnum", BackgroundColor = Colors.Purple, TextColor = Colors.White };
         greetingBtn.Clicked += Saada_Tervitusesõnum_Clicked;
 
         var bombBtn = new Button { Text = "Saada pommiähvardus", BackgroundColor = Colors.Orange, TextColor = Colors.White };
         bombBtn.Clicked += Saada_Pommiähvardussõnum_Clicked;
 
-
-        Content = new VerticalStackLayout
+     
+        var mainGrid = new Grid
         {
             Padding = 20,
-            Spacing = 10, 
-            Children = {
-            new ScrollView { Content = _messageDisplay, HeightRequest = 300 },
-            new HorizontalStackLayout { Spacing = 5, Children = { _inputField, sendBtn } },
-            backBtn,
-            emailBtn,
-            smsBtn,
-
-            new Label { Text = "Kiirvalikud:", Margin = new Thickness(0,10,0,0) },
-            christmasBtn,
-            birthdayBtn,
-            funeralBtn,
-            greetingBtn,
-            bombBtn
-
-        }
+            RowDefinitions =
+            {
+                new RowDefinition { Height = GridLength.Star }, 
+                new RowDefinition { Height = GridLength.Auto }  
+            }
         };
+
+        var scroll = new ScrollView
+        {
+            Content = _messageDisplay,
+            VerticalScrollBarVisibility = ScrollBarVisibility.Always
+        };
+
+        var controlsLayout = new VerticalStackLayout
+        {
+            Spacing = 10,
+            Children = {
+                new HorizontalStackLayout { Spacing = 5, Children = { _inputField, sendBtn } },
+                backBtn,
+                emailBtn,
+                smsBtn,
+                new Label { Text = "Kiirvalikud:", Margin = new Thickness(0,10,0,0) },
+                christmasBtn,
+                birthdayBtn,
+                funeralBtn,
+                greetingBtn,
+                bombBtn
+            }
+        };
+
+        mainGrid.Add(scroll, 0, 0);       
+        mainGrid.Add(controlsLayout, 0, 1); 
+
+        Content = mainGrid;
+      
     }
 
     void OnSendClicked(object sender, EventArgs e)
@@ -167,7 +186,7 @@ public partial class MessageLogPage : ContentPage
 
     private async void Saada_Joulusõnum_Clicked(object sender, EventArgs e)
     {
-      
+
         var msgs = new List<string>
     {
         "Häid jõule!  Soovin sulle rahulikku pühadeaega!",
@@ -176,12 +195,12 @@ public partial class MessageLogPage : ContentPage
         "Rõõmsaid pühi sulle ja sinu lähedastele!"
     };
 
-       
+
         Random rnd = new Random();
         int index = rnd.Next(msgs.Count);
         string randomMessage = msgs[index];
 
-  
+
         await ExecuteEmail(_contactId, randomMessage);
     }
     private async void Saada_Sünnipäevasõnum_Clicked(object sender, EventArgs e)
@@ -259,14 +278,4 @@ public partial class MessageLogPage : ContentPage
 
         await ExecuteEmail(_contactId, randomMessage);
     }
-
-
-
-
-
-
-
-
-
-
 }
