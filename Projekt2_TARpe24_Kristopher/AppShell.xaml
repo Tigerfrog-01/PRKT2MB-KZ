@@ -99,6 +99,10 @@ Route="Index" />
 Title="CallPage"
 ContentTemplate="{DataTemplate local:CallPage}"
 Route="Index" />
+    <ShellContent
+Title="CallPage"
+ContentTemplate="{DataTemplate local:Europe}"
+Route="Index" />
 
 
 

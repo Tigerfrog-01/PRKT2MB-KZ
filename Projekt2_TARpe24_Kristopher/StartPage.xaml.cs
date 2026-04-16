@@ -26,7 +26,8 @@ public partial class StartPage : ContentPage
              ("PopUpProject", new PopUpProject()),
             ("PickerImagePage", new PickerImagePage()),
                 ("TripsTraps", new TripsPea()),
-            ("Phone", new Phone())
+            ("Phone", new Phone()),
+              ("Europe", new Europe())
         }}
     };
 
