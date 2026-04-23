@@ -103,6 +103,10 @@ Route="Index" />
 Title="CallPage"
 ContentTemplate="{DataTemplate local:Europe}"
 Route="Index" />
+    <ShellContent
+Title="Karusell"
+ContentTemplate="{DataTemplate local:Karusell}"
+Route="Index" />
 
 
 
