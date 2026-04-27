@@ -1,7 +1,6 @@
-using Microsoft.Maui.Controls;
-using Projekt2_TARpe24_Kristopher; 
 using System.Collections.ObjectModel;
 using System.Globalization;
+using Microsoft.Maui.Controls;
 
 namespace Projekt2_TARpe24_Kristopher
 {
@@ -14,22 +13,68 @@ namespace Projekt2_TARpe24_Kristopher
             public string Description { get; set; }
         }
 
+        private static string currentLanguage = "et";
         private CarouselView carouselView;
         private ObservableCollection<CarouselItem> items;
         private int position = 0;
 
+        private Entry pealkiriEntry;
+        private Entry kirjeldusEntry;
+        private Entry imageUrlEntry;
+        private Button lisaNupp;
+        private Label lisaSilt;
+        private Image backgroundImage;
+
+        private readonly Dictionary<string, Dictionary<string, string>> translations = new()
+        {
+            ["et"] = new()
+            {
+                ["PageTitle"] = "Toidumenüü Karussell",
+                ["NamePlace"] = "Toidu nimi...",
+                ["DescPlace"] = "Kirjeldus...",
+                ["UrlPlace"] = "Pildi link...",
+                ["AddBtn"] = "Lisa uus kaart",
+                ["AddLabel"] = "Lisa oma toit:",
+                ["PizzaDesc"] = "Napoli stiilis itaalia pärane mahlane maitsev pitsa",
+                ["FishDesc"] = "Vastupanduvad Bastocini, mis on kohaliku itaalia varjatud pärl",
+                ["LasagnaDesc"] = "Nii kihiline, sellist maitselist elamust sa oma elus kunagi ei saa",
+                ["TiramisuDesc"] = "Nagu Eesti lemmik küpsise kook aga mõrudam ja depresiivsem",
+                ["PastaDesc"] = "Kooreline pasta koos krõbeda peekoniga, nii krõbe.."
+            },
+            ["en"] = new()
+            {
+                ["PageTitle"] = "Food Menu Carousel",
+                ["NamePlace"] = "Food name...",
+                ["DescPlace"] = "Description...",
+                ["UrlPlace"] = "Image URL...",
+                ["AddBtn"] = "Add new card",
+                ["AddLabel"] = "Add your food:",
+                ["PizzaDesc"] = "Authentic Neapolitan style juicy and delicious pizza",
+                ["FishDesc"] = "Irresistible Bastoncini, a hidden gem of local Italian cuisine",
+                ["LasagnaDesc"] = "So many layers, you will never have a taste experience like this again",
+                ["TiramisuDesc"] = "Like a favorite cookie cake, but more bitter and dramatic",
+                ["PastaDesc"] = "Creamy pasta with crispy bacon, oh so crispy.."
+            }
+        };
+
         public Karusell()
         {
-         
-            Title = AppResources.PageTitle;
+            Title = translations[currentLanguage]["PageTitle"];
+
+            backgroundImage = new Image
+            {
+                Source = "background.jpg",
+                Aspect = Aspect.AspectFill,
+                Opacity = 0.5
+            };
 
             items = new ObservableCollection<CarouselItem>
             {
-                new CarouselItem { Title = "Pizza", ImageUrl = "pizza.jpg", Description = "Napoli stiilis itaalia pärane mahlane maitsev pitsa" },
-                new CarouselItem { Title = "Bastoncini di Pesce", ImageUrl = "fishfingers.jpg", Description = "Vastupanduvad Bastocini, mis on kohaliku itaalia varjatud pärl" },
-                new CarouselItem { Title = "Lasanje", ImageUrl = "lasagna.jpg", Description = "Nii kihiline, sellist maitselist elamust sa oma elus kunagi ei saa" },
-                new CarouselItem { Title = "Tiramisu", ImageUrl = "tiramisu.jpg", Description = "Nagu Eesti lemmik küpsise kook aga mõrudam ja depresiivsem" },
-                new CarouselItem { Title = "Carbonara", ImageUrl = "carbonara.jpg", Description = "Kooreline pasta koos krõbeda peekoniga, nii krõbe.." }
+                new CarouselItem { Title = "Pizza", ImageUrl = "pizza.jpg", Description = translations[currentLanguage]["PizzaDesc"] },
+                new CarouselItem { Title = "Bastoncini di Pesce", ImageUrl = "fishfingers.jpg", Description = translations[currentLanguage]["FishDesc"] },
+                new CarouselItem { Title = "Lasanje", ImageUrl = "lasagna.jpg", Description = translations[currentLanguage]["LasagnaDesc"] },
+                new CarouselItem { Title = "Tiramisu", ImageUrl = "tiramisu.jpg", Description = translations[currentLanguage]["TiramisuDesc"] },
+                new CarouselItem { Title = "Carbonara", ImageUrl = "carbonara.jpg", Description = translations[currentLanguage]["PastaDesc"] }
             };
 
             var indicatorView = new IndicatorView
@@ -50,7 +95,6 @@ namespace Projekt2_TARpe24_Kristopher
                 {
                     var frame = new Frame { CornerRadius = 20, Padding = 0, Margin = 10, BackgroundColor = Colors.Black, IsClippedToBounds = true };
                     var grid = new Grid();
-
                     var image = new Image { Aspect = Aspect.AspectFill };
                     image.SetBinding(Image.SourceProperty, "ImageUrl");
 
@@ -77,18 +121,19 @@ namespace Projekt2_TARpe24_Kristopher
             };
 
             var btnEn = new Button { Text = "EN", WidthRequest = 60 };
-            btnEn.Clicked += (s, e) => ChangeLanguage("en-US");
+            btnEn.Clicked += (s, e) => ChangeLanguage("en");
             var btnEt = new Button { Text = "ET", WidthRequest = 60 };
-            btnEt.Clicked += (s, e) => ChangeLanguage("et-EE");
+            btnEt.Clicked += (s, e) => ChangeLanguage("et");
             var langStack = new HorizontalStackLayout { Spacing = 10, HorizontalOptions = LayoutOptions.Center, Children = { btnEt, btnEn } };
 
-            var pealkiriEntry = new Entry { Placeholder = AppResources.NamePlaceHolder };
-            var kirjeldusEntry = new Entry { Placeholder = AppResources.DescPlaceHolder };
-            var imageUrlEntry = new Entry { Placeholder = AppResources.UrlPlaceHolder };
+            lisaSilt = new Label { Text = translations[currentLanguage]["AddLabel"], FontAttributes = FontAttributes.Bold, Margin = new Thickness(0, 10, 0, 0) };
+            pealkiriEntry = new Entry { Placeholder = translations[currentLanguage]["NamePlace"] };
+            kirjeldusEntry = new Entry { Placeholder = translations[currentLanguage]["DescPlace"] };
+            imageUrlEntry = new Entry { Placeholder = translations[currentLanguage]["UrlPlace"] };
 
-            var lisaNupp = new Button
+            lisaNupp = new Button
             {
-                Text = AppResources.AddBtn,
+                Text = translations[currentLanguage]["AddBtn"],
                 BackgroundColor = Colors.ForestGreen,
                 TextColor = Colors.White,
                 CornerRadius = 10
@@ -96,64 +141,51 @@ namespace Projekt2_TARpe24_Kristopher
 
             lisaNupp.Clicked += async (s, e) => {
                 if (string.IsNullOrWhiteSpace(pealkiriEntry.Text)) return;
-
                 items.Add(new CarouselItem
                 {
                     Title = pealkiriEntry.Text,
                     Description = kirjeldusEntry.Text,
-                    ImageUrl = string.IsNullOrWhiteSpace(imageUrlEntry.Text) ? "https://loremflickr.com/600/400/food" : imageUrlEntry.Text
+                    ImageUrl = string.IsNullOrWhiteSpace(imageUrlEntry.Text) ? "https://loremflickr.com/600/400/italy" : imageUrlEntry.Text
                 });
-
-                pealkiriEntry.Text = string.Empty;
-                kirjeldusEntry.Text = string.Empty;
-                imageUrlEntry.Text = string.Empty;
+                pealkiriEntry.Text = kirjeldusEntry.Text = imageUrlEntry.Text = string.Empty;
                 carouselView.Position = items.Count - 1;
             };
 
-            Device.StartTimer(TimeSpan.FromSeconds(4), () =>
-            {
+            Device.StartTimer(TimeSpan.FromSeconds(4), () => {
                 if (items.Count == 0) return false;
                 position = (carouselView.Position + 1) % items.Count;
                 carouselView.Position = position;
                 return true;
             });
 
-            Content = new ScrollView
+            var mainStack = new VerticalStackLayout
             {
-                Content = new VerticalStackLayout
-                {
-                    Padding = 20,
-                    Spacing = 10,
-                    Children = {
-                        langStack,
-                        carouselView,
-                        indicatorView,
-                        new BoxView { HeightRequest = 1, Color = Colors.Gray },
-                        pealkiriEntry,
-                        kirjeldusEntry,
-                        imageUrlEntry,
-                        lisaNupp
-                    }
-                }
+                Padding = 20,
+                Spacing = 10,
+                Children = { langStack, carouselView, indicatorView, new BoxView { HeightRequest = 1, Color = Colors.Gray }, lisaSilt, pealkiriEntry, kirjeldusEntry, imageUrlEntry, lisaNupp }
             };
+
+            var mainGrid = new Grid();
+            mainGrid.Children.Add(backgroundImage);
+            mainGrid.Children.Add(new ScrollView { Content = mainStack });
+
+            Content = mainGrid;
+
+            StartBackgroundAnimation();
+        }
+
+        private async void StartBackgroundAnimation()
+        {
+            while (true)
+            {
+                await backgroundImage.ScaleTo(1.2, 10000);
+                await backgroundImage.ScaleTo(1.0, 10000);
+            }
         }
 
         private void ChangeLanguage(string langCode)
         {
-            var culture = new CultureInfo(langCode);
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
-
-            if (langCode == "en-US")
-            {
-            
-                Title = AppResourcesEN.PageTitle;
-            }
-            else
-            {
-                Title = AppResources.PageTitle;
-            }
-
+            currentLanguage = langCode;
             Application.Current.MainPage = new NavigationPage(new Karusell());
         }
     }
