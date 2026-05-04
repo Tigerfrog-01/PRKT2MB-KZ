@@ -111,6 +111,10 @@ Route="Index" />
 Title="FishMerge"
 ContentTemplate="{DataTemplate local:FishMerge}"
 Route="Index" />
+    <ShellContent
+Title="DisasterRecipe"
+ContentTemplate="{DataTemplate local:DisasterRecipe}"
+Route="Index" />
 
 
 
