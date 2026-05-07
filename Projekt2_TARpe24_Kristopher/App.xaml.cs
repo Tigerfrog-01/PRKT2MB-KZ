@@ -7,7 +7,7 @@ namespace Projekt2_TARpe24_Kristopher
         public App()
         {
             InitializeComponent();
-       
+
 
         }
 

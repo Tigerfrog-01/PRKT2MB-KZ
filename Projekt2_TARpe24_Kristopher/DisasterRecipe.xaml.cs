@@ -1,67 +1,103 @@
-
 using Microsoft.Maui.Controls;
-using System.Security.Cryptography;
+using Microsoft.Maui.Storage;
 
 namespace Projekt2_TARpe24_Kristopher;
 
 public partial class DisasterRecipe : ContentPage
 {
-    Label Pealkiri;
-    Label Kategooria;
-    Label Image;
+    Entry OmadusEntry;
+    Entry KategooriEntry;
+    Entry LinkEntry;
+    Image RetseptiPilt;
+    string valitudPildiRada = "";
 
-    private Entry OmadusEntry;
-    private Entry KategooriEntry;
-    private Entry imageUrlEntry;
-
-  
-
-    private Button lisaNupp;
     public DisasterRecipe()
     {
-        InitializeComponent();
+        BackgroundColor = Color.FromArgb("#F5F5F5");
+        Title = "Uus retsept";
 
-
-
-        Pealkiri = new Label
+        var header = new Label
         {
-            Text = "Retsepti nimi"
+            Text = "Retsepti Lisamine",
+            FontSize = 28,
+            FontAttributes = FontAttributes.Bold,
+            HorizontalOptions = LayoutOptions.Center,
+            TextColor = Colors.Black
         };
-        OmadusEntry = new Entry {Placeholder = ("nt Kirjukoer") };
-        Kategooria = new Label
-        {
-            Text = "Retsepti kategooria"
-        };
-        KategooriEntry = new Entry {Placeholder = ("nt Magustoit") };
-        Image = new Label
-        {
-            Text = "Retsepti pilt"
-        };
-        imageUrlEntry = new Entry {Placeholder = ("nt Kirjukoera pilt") };
 
+        OmadusEntry = new Entry { Placeholder = "Toidu nimi", TextColor = Colors.Black, PlaceholderColor = Colors.Gray };
+        KategooriEntry = new Entry { Placeholder = "Kategooria (nt. Magustoit)", TextColor = Colors.Black, PlaceholderColor = Colors.Gray };
+        LinkEntry = new Entry { Placeholder = "Pildi veebiaadress (URL)", TextColor = Colors.Black, PlaceholderColor = Colors.Gray };
 
-        lisaNupp = new Button
+        var pildiNupp = new Button
         {
-            Text = "Lisa Retsept",
-            BackgroundColor = Colors.ForestGreen,
+            Text = "VALI PILT GALERIIST",
+            BackgroundColor = Colors.SlateGray,
             TextColor = Colors.White,
             CornerRadius = 10
         };
 
-        var mainStack = new VerticalStackLayout
+        pildiNupp.Clicked += async (s, e) =>
         {
-            Padding = 20,
-            Spacing = 10,
-            Children = { new BoxView { HeightRequest = 1, Color = Colors.Gray },Pealkiri,OmadusEntry,Kategooria,KategooriEntry,Image,imageUrlEntry, lisaNupp }
+            var pilt = await MediaPicker.Default.PickPhotoAsync();
+            if (pilt != null)
+            {
+                valitudPildiRada = pilt.FullPath;
+                LinkEntry.Text = valitudPildiRada;
+                RetseptiPilt.Source = ImageSource.FromFile(valitudPildiRada);
+                RetseptiPilt.IsVisible = true;
+            }
         };
-        this.Content = mainStack;
 
+        RetseptiPilt = new Image { HeightRequest = 150, Aspect = Aspect.AspectFill, IsVisible = false };
+
+        var lisaNupp = new Button
+        {
+            Text = "SALVESTA RETSEPT",
+            BackgroundColor = Colors.ForestGreen,
+            TextColor = Colors.White,
+            CornerRadius = 25,
+            HeightRequest = 50,
+            FontAttributes = FontAttributes.Bold,
+            Margin = new Thickness(0, 15)
+        };
+
+        lisaNupp.Clicked += async (s, e) =>
+        {
+            if (string.IsNullOrWhiteSpace(OmadusEntry.Text) ||
+                string.IsNullOrWhiteSpace(KategooriEntry.Text) ||
+                string.IsNullOrWhiteSpace(LinkEntry.Text))
+            {
+                await DisplayAlert("Hoiatus", "Kõik väljad peavad olema täidetud!", "OK");
+                return;
+            }
+
+            var uus = new Retsept { Nimi = OmadusEntry.Text, Kategooria = KategooriEntry.Text, PildiLink = LinkEntry.Text };
+            FailiHaldur.SalvestaRetsept(uus);
+
+            OmadusEntry.Text = "";
+            KategooriEntry.Text = "";
+            LinkEntry.Text = "";
+            RetseptiPilt.IsVisible = false;
+
+            await DisplayAlert("Edukas", "Retsept on salvestatud!", "OK");
+        };
+
+        Content = new ScrollView
+        {
+            Content = new Frame
+            {
+                CornerRadius = 15,
+                Padding = 20,
+                Margin = 15,
+                HasShadow = true,
+                BackgroundColor = Colors.White,
+                Content = new VerticalStackLayout
+                {
+                    Spacing = 10,
+                    Children = { header, OmadusEntry, KategooriEntry, LinkEntry, pildiNupp, RetseptiPilt, lisaNupp }
+                }
+            }
+        };
     }
-
-
-
-       
-        
-
-      
 }

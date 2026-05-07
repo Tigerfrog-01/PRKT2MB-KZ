@@ -4,31 +4,30 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Projekt2_TARpe24_Kristopher"
-    Title="Projekt2_TARpe24_Kristopher">
-
-    <Shell.TitleView>
-        <Label
-            Text="näidis"
-            FontFamily="luffio Regular 400"
-            FontSize="Small"
-            TextColor="DarkGoldenrod"
-            VerticalTextAlignment="Center"
-            VerticalOptions="Center"
-            HorizontalOptions="Start"
-            Padding="25,0,0,0"
-            HeightRequest="50"/>
-    </Shell.TitleView>
+    Title="Projekt2_TARpe24_Kristopher"
+    FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:StartPage}"
-        Route="Index" />
+    Title="Home"
+    ContentTemplate="{DataTemplate local:StartPage}"
+    Route="Index" />
+
+    <FlyoutItem Title="Retseptiraamat" Route="Recipes">
+        <Tab Title="Uus retsept" Icon="add.png">
+            <ShellContent ContentTemplate="{DataTemplate local:DisasterRecipe}" />
+        </Tab>
+        <Tab Title="Minu retseptid" Icon="list.png">
+            <ShellContent ContentTemplate="{DataTemplate local:RecipeListPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    
 
     <ShellContent
      Title="TextPage"
      ContentTemplate="{DataTemplate local:TextPage}"
      Route="Index" />
-    
+
     <ShellContent
     Title="FigurePage"
     ContentTemplate="{DataTemplate local:FigurePage}"
@@ -38,7 +37,7 @@
     Title="TimerPage"
     ContentTemplate="{DataTemplate local:TimerPage}"
     Route="Index" />
-    
+
     <ShellContent
     Title="ValgusFloorPage"
     ContentTemplate="{DataTemplate local:ValgusFloorPage}"
@@ -111,10 +110,7 @@ Route="Index" />
 Title="FishMerge"
 ContentTemplate="{DataTemplate local:FishMerge}"
 Route="Index" />
-    <ShellContent
-Title="DisasterRecipe"
-ContentTemplate="{DataTemplate local:DisasterRecipe}"
-Route="Index" />
+
 
 
 
