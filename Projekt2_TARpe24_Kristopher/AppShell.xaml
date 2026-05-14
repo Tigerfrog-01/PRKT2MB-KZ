@@ -12,16 +12,9 @@
     ContentTemplate="{DataTemplate local:StartPage}"
     Route="Index" />
 
-    <FlyoutItem Title="Retseptiraamat" Route="Recipes">
-        <Tab Title="Uus retsept" Icon="add.png">
-            <ShellContent ContentTemplate="{DataTemplate local:DisasterRecipe}" />
-        </Tab>
-        <Tab Title="Minu retseptid" Icon="list.png">
-            <ShellContent ContentTemplate="{DataTemplate local:RecipeListPage}" />
-        </Tab>
-    </FlyoutItem>
 
-    
+
+
 
     <ShellContent
      Title="TextPage"
@@ -110,6 +103,15 @@ Route="Index" />
 Title="FishMerge"
 ContentTemplate="{DataTemplate local:FishMerge}"
 Route="Index" />
+
+    <ShellContent
+ Title="DisasterRecipePage"
+ ContentTemplate="{DataTemplate local:DisasterRecipe}"
+ Route="Index" />
+    <ShellContent
+ Title="RecipeListPage"
+ ContentTemplate="{DataTemplate local:RecipeListPage}"
+ Route="Index" />
 
 
 

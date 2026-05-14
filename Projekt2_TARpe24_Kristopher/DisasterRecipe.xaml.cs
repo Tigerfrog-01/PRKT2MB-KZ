@@ -13,6 +13,8 @@ public partial class DisasterRecipe : ContentPage
 
     public DisasterRecipe()
     {
+        InitializeComponent();
+
         BackgroundColor = Color.FromArgb("#F5F5F5");
         Title = "Uus retsept";
 
@@ -83,19 +85,35 @@ public partial class DisasterRecipe : ContentPage
             await DisplayAlert("Edukas", "Retsept on salvestatud!", "OK");
         };
 
+        Button recipeBtn = new Button
+        {
+            Text = "Ava retsepti raamat",
+            BackgroundColor = Colors.DarkSlateBlue,
+            TextColor = Colors.White,
+            FontSize = 24,
+            HeightRequest = 60,
+            Margin = new Thickness(0, 20, 0, 0)
+        };
+
+        recipeBtn.Clicked += async (s, e) => await Navigation.PushAsync(new RecipeListPage());
+
+  
         Content = new ScrollView
         {
-            Content = new Frame
+            Content = new VerticalStackLayout
             {
-                CornerRadius = 15,
                 Padding = 20,
-                Margin = 15,
-                HasShadow = true,
-                BackgroundColor = Colors.White,
-                Content = new VerticalStackLayout
+                Spacing = 12,
+                Children =
                 {
-                    Spacing = 10,
-                    Children = { header, OmadusEntry, KategooriEntry, LinkEntry, pildiNupp, RetseptiPilt, lisaNupp }
+                    header,
+                    OmadusEntry,
+                    KategooriEntry,
+                    LinkEntry,
+                    pildiNupp,
+                    RetseptiPilt,
+                    lisaNupp,
+                    recipeBtn
                 }
             }
         };

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
+using System;
 using System.Linq;
 
 namespace Projekt2_TARpe24_Kristopher;
@@ -9,9 +10,11 @@ public partial class RecipeListPage : ContentPage
 
     public RecipeListPage()
     {
+   
         Title = "Minu retseptid";
         BackgroundColor = Color.FromArgb("#F5F5F5");
 
+        
         RetseptiLoend = new ListView
         {
             IsGroupingEnabled = true,
@@ -65,7 +68,33 @@ public partial class RecipeListPage : ContentPage
             })
         };
 
-        Content = RetseptiLoend;
+    
+        Button recipeBtn = new Button
+        {
+            Text = "Mine tagasi",
+            BackgroundColor = Colors.DarkSlateBlue,
+            TextColor = Colors.White,
+            FontSize = 20,
+            HeightRequest = 50,
+            Margin = new Thickness(10)
+        };
+
+        recipeBtn.Clicked += async (s, e) => await Navigation.PushAsync(new DisasterRecipe());
+
+        
+        var mainGrid = new Grid
+        {
+            RowDefinitions =
+            {
+                new RowDefinition(GridLength.Star), 
+                new RowDefinition(GridLength.Auto)  
+            }
+        };
+
+        mainGrid.Add(RetseptiLoend, 0, 0);
+        mainGrid.Add(recipeBtn, 0, 1);
+
+        Content = mainGrid;
     }
 
     protected override void OnAppearing()
@@ -97,6 +126,7 @@ public partial class RecipeListPage : ContentPage
         }
         catch
         {
+           
         }
     }
 
