@@ -30,7 +30,8 @@ public partial class StartPage : ContentPage
               ("Europe", new Europe()),
             ("Karusell", new Karusell()),
               ("FishMerge", new FishMerge()),
-              ("Recipe", new DisasterRecipe())
+              ("Recipe", new DisasterRecipe()),
+            ("CityExplorer", new CityExplorer())
         }}
     };
 

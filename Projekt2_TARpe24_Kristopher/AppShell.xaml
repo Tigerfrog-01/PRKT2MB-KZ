@@ -112,7 +112,10 @@ Route="Index" />
  Title="RecipeListPage"
  ContentTemplate="{DataTemplate local:RecipeListPage}"
  Route="Index" />
-
+    <ShellContent
+Title="CityExplorer"
+ContentTemplate="{DataTemplate local:CityExplorer}"
+Route="Index" />
 
 
 
