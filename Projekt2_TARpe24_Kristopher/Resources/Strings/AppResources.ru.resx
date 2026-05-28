@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>CityExplorer</value>
+  </data>
+  <data name="ExploreTitle" xml:space="preserve">
+    <value>Обзор</value>
+  </data>
+  <data name="ExploreIntro" xml:space="preserve">
+    <value>Просматривай места Таллинна и выбирай категорию справа</value>
+  </data>
+  <data name="FavoritesTitle" xml:space="preserve">
+    <value>Мои избранные</value>
+  </data>
+  <data name="FavoritesIntro" xml:space="preserve">
+    <value>Здесь находятся места, которые ты сохранил на потом</value>
+  </data>
+  <data name="EmptyFavoritesText" xml:space="preserve">
+    <value>Избранных мест пока нет</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SettingsIntro" xml:space="preserve">
+    <value>Выбери язык приложения</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="EstonianLanguage" xml:space="preserve">
+    <value>Эстонский</value>
+  </data>
+  <data name="EnglishLanguage" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="RussianLanguage" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="CurrentLanguageFormat" xml:space="preserve">
+    <value>Текущий язык: {0}</value>
+  </data>
+  <data name="AddFavoriteButton" xml:space="preserve">
+    <value>Добавить в избранное</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="FavoriteSavedTitle" xml:space="preserve">
+    <value>Сохранено</value>
+  </data>
+  <data name="FavoriteSavedMessage" xml:space="preserve">
+    <value>Место добавлено в избранное</value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="CategoryHistory" xml:space="preserve">
+    <value>История</value>
+  </data>
+  <data name="CategoryParks" xml:space="preserve">
+    <value>Парки</value>
+  </data>
+  <data name="CategoryFood" xml:space="preserve">
+    <value>Еда</value>
+  </data>
+  <data name="CategoryCulture" xml:space="preserve">
+    <value>Культура</value>
+  </data>
+  <data name="PlaceOldTownName" xml:space="preserve">
+    <value>Старый город Таллинна</value>
+  </data>
+  <data name="PlaceOldTownShort" xml:space="preserve">
+    <value>Средневековые улицы, башни и старые городские стены</value>
+  </data>
+  <data name="PlaceOldTownFull" xml:space="preserve">
+    <value>Старый город Таллинна входит в список ЮНЕСКО, здесь можно гулять по мощеным улицам, увидеть Ратушную площадь и башни городской стены</value>
+  </data>
+  <data name="PlaceMuseumName" xml:space="preserve">
+    <value>Музей городской жизни Таллинна</value>
+  </data>
+  <data name="PlaceMuseumShort" xml:space="preserve">
+    <value>Истории города и повседневная жизнь разных веков</value>
+  </data>
+  <data name="PlaceMuseumFull" xml:space="preserve">
+    <value>Музей рассказывает о повседневной жизни Таллинна, торговле, домах и изменениях города в разные эпохи</value>
+  </data>
+  <data name="PlaceKadriorgName" xml:space="preserve">
+    <value>Парк Кадриорг</value>
+  </data>
+  <data name="PlaceKadriorgShort" xml:space="preserve">
+    <value>Зеленые дорожки, пруды, сады и дворец Кадриорг</value>
+  </data>
+  <data name="PlaceKadriorgFull" xml:space="preserve">
+    <value>Парк Кадриорг подходит для спокойной прогулки, здесь есть дворец, цветники, старые деревья и тихие дорожки</value>
+  </data>
+  <data name="PlaceDragonName" xml:space="preserve">
+    <value>Ресторан Дракон</value>
+  </data>
+  <data name="PlaceDragonShort" xml:space="preserve">
+    <value>Средневековый вкус рядом с Ратушной площадью</value>
+  </data>
+  <data name="PlaceDragonFull" xml:space="preserve">
+    <value>Ресторан Дракон предлагает простую средневековую атмосферу, горячий суп, пирожки и запоминающуюся остановку в сердце Старого города</value>
+  </data>
+  <data name="PlaceTheaterName" xml:space="preserve">
+    <value>Театр Эстония</value>
+  </data>
+  <data name="PlaceTheaterShort" xml:space="preserve">
+    <value>Опера, балет и дом эстонской сценической культуры</value>
+  </data>
+  <data name="PlaceTheaterFull" xml:space="preserve">
+    <value>Театр Эстония является важным культурным местом Таллинна, где проходят оперы, балеты, концерты и праздничные постановки</value>
+  </data>
+</root>

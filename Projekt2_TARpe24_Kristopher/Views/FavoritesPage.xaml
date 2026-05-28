@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.Views.FavoritesPage"
+             x:Name="FavoritesRoot"
+             Title="{Binding FavoritesTitle}"
+             BackgroundColor="#F8FAFC">
+    <Grid RowDefinitions="Auto,*" Padding="18" RowSpacing="14">
+        <VerticalStackLayout Spacing="4">
+            <Label Text="{Binding FavoritesTitle}"
+                   FontAttributes="Bold"
+                   FontSize="28"
+                   TextColor="#0F172A" />
+            <Label Text="{Binding FavoritesIntro}"
+                   FontSize="14"
+                   TextColor="#475569" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Favorites}"
+                        SelectionMode="None">
+            <CollectionView.EmptyView>
+                <Label Text="{Binding EmptyFavoritesText}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="16"
+                       TextColor="#64748B" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView Margin="0,0,0,10">
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="{Binding BindingContext.RemoveButtonText, Source={x:Reference FavoritesRoot}}"
+                                           BackgroundColor="#DC2626"
+                                           Command="{Binding BindingContext.RemoveFavoriteCommand, Source={x:Reference FavoritesRoot}}"
+                                           CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Border BackgroundColor="White"
+                                Stroke="#E2E8F0"
+                                StrokeThickness="1"
+                                Padding="10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="92,*" ColumnSpacing="12">
+                                <Image Source="{Binding ImageName}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="82"
+                                       WidthRequest="92" />
+                                <VerticalStackLayout Grid.Column="1"
+                                                     Spacing="6"
+                                                     VerticalOptions="Center">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#0F172A" />
+                                    <Label Text="{Binding ShortDescription}"
+                                           FontSize="13"
+                                           MaxLines="2"
+                                           TextColor="#475569" />
+                                    <Button Text="{Binding BindingContext.RemoveButtonText, Source={x:Reference FavoritesRoot}}"
+                                            Command="{Binding BindingContext.RemoveFavoriteCommand, Source={x:Reference FavoritesRoot}}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="#FEE2E2"
+                                            TextColor="#991B1B"
+                                            HorizontalOptions="Start"
+                                            Padding="12,6"
+                                            MinimumHeightRequest="34" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>CityExplorer</value>
+  </data>
+  <data name="ExploreTitle" xml:space="preserve">
+    <value>Avasta</value>
+  </data>
+  <data name="ExploreIntro" xml:space="preserve">
+    <value>Sirvi Tallinna paiku ja vali paremalt kategooria</value>
+  </data>
+  <data name="FavoritesTitle" xml:space="preserve">
+    <value>Minu lemmikud</value>
+  </data>
+  <data name="FavoritesIntro" xml:space="preserve">
+    <value>Siin on kohad, mille salvestasid hilisemaks</value>
+  </data>
+  <data name="EmptyFavoritesText" xml:space="preserve">
+    <value>Lemmikuid pole veel lisatud</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Seaded</value>
+  </data>
+  <data name="SettingsIntro" xml:space="preserve">
+    <value>Vali rakenduse keel</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>Keel</value>
+  </data>
+  <data name="EstonianLanguage" xml:space="preserve">
+    <value>Eesti</value>
+  </data>
+  <data name="EnglishLanguage" xml:space="preserve">
+    <value>Inglise</value>
+  </data>
+  <data name="RussianLanguage" xml:space="preserve">
+    <value>Vene</value>
+  </data>
+  <data name="CurrentLanguageFormat" xml:space="preserve">
+    <value>Praegune keel: {0}</value>
+  </data>
+  <data name="AddFavoriteButton" xml:space="preserve">
+    <value>Lisa lemmikutesse</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>Sulge</value>
+  </data>
+  <data name="FavoriteSavedTitle" xml:space="preserve">
+    <value>Salvestatud</value>
+  </data>
+  <data name="FavoriteSavedMessage" xml:space="preserve">
+    <value>Koht lisati lemmikutesse</value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Eemalda</value>
+  </data>
+  <data name="CategoryHistory" xml:space="preserve">
+    <value>Ajalugu</value>
+  </data>
+  <data name="CategoryParks" xml:space="preserve">
+    <value>Pargid</value>
+  </data>
+  <data name="CategoryFood" xml:space="preserve">
+    <value>Toidukohad</value>
+  </data>
+  <data name="CategoryCulture" xml:space="preserve">
+    <value>Kultuur</value>
+  </data>
+  <data name="PlaceOldTownName" xml:space="preserve">
+    <value>Tallinna vanalinn</value>
+  </data>
+  <data name="PlaceOldTownShort" xml:space="preserve">
+    <value>Keskaegsed tänavad, tornid ja vanad linnamüürid</value>
+  </data>
+  <data name="PlaceOldTownFull" xml:space="preserve">
+    <value>Tallinna vanalinn on UNESCO maailmapärandi ala, kus saab jalutada munakivitänavatel, näha Raekoja platsi ja avastada linnamüüri torne</value>
+  </data>
+  <data name="PlaceMuseumName" xml:space="preserve">
+    <value>Tallinna linnaelu muuseum</value>
+  </data>
+  <data name="PlaceMuseumShort" xml:space="preserve">
+    <value>Linna lood ja inimeste elu läbi mitme sajandi</value>
+  </data>
+  <data name="PlaceMuseumFull" xml:space="preserve">
+    <value>Muuseum tutvustab Tallinna argielu, kaubandust, kodusid ja linnaruumi muutumist eri ajastutel</value>
+  </data>
+  <data name="PlaceKadriorgName" xml:space="preserve">
+    <value>Kadrioru park</value>
+  </data>
+  <data name="PlaceKadriorgShort" xml:space="preserve">
+    <value>Rohelus, alleed, tiigid ja Kadrioru loss</value>
+  </data>
+  <data name="PlaceKadriorgFull" xml:space="preserve">
+    <value>Kadrioru park on elegantne jalutuskoht, kus saab näha lossi, lilleaedu, vanu puid ja vaikseid teeradu</value>
+  </data>
+  <data name="PlaceDragonName" xml:space="preserve">
+    <value>Draakoni restoran</value>
+  </data>
+  <data name="PlaceDragonShort" xml:space="preserve">
+    <value>Keskaegne toiduelamus Raekoja platsi lähedal</value>
+  </data>
+  <data name="PlaceDragonFull" xml:space="preserve">
+    <value>Draakoni restoran pakub lihtsat keskaegset meeleolu, sooja suppi, pirukaid ja elamust otse vanalinna südames</value>
+  </data>
+  <data name="PlaceTheaterName" xml:space="preserve">
+    <value>Estonia teater</value>
+  </data>
+  <data name="PlaceTheaterShort" xml:space="preserve">
+    <value>Ooper, ballett ja Eesti lavakultuuri kodu</value>
+  </data>
+  <data name="PlaceTheaterFull" xml:space="preserve">
+    <value>Estonia teater on Tallinna oluline kultuuripaik, kus toimuvad ooperid, balletid, kontserdid ja pidulikud etendused</value>
+  </data>
+</root>

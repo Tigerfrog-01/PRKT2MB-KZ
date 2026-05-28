@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt2_TARpe24_Kristopher.Views.SettingsPage"
+             Title="{Binding SettingsTitle}"
+             BackgroundColor="#F8FAFC">
+    <ScrollView>
+        <VerticalStackLayout Padding="18" Spacing="16">
+            <VerticalStackLayout Spacing="4">
+                <Label Text="{Binding SettingsTitle}"
+                       FontAttributes="Bold"
+                       FontSize="28"
+                       TextColor="#0F172A" />
+                <Label Text="{Binding SettingsIntro}"
+                       FontSize="14"
+                       TextColor="#475569" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="White"
+                    Stroke="#E2E8F0"
+                    StrokeThickness="1"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding LanguageTitle}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#0F172A" />
+                    <Label Text="{Binding CurrentLanguageText}"
+                           FontSize="14"
+                           TextColor="#475569" />
+                    <Button Text="{Binding EstonianLanguage}"
+                            Command="{Binding ChangeLanguageCommand}"
+                            CommandParameter="et"
+                            BackgroundColor="#0F766E"
+                            TextColor="White" />
+                    <Button Text="{Binding EnglishLanguage}"
+                            Command="{Binding ChangeLanguageCommand}"
+                            CommandParameter="en"
+                            BackgroundColor="#2563EB"
+                            TextColor="White" />
+                    <Button Text="{Binding RussianLanguage}"
+                            Command="{Binding ChangeLanguageCommand}"
+                            CommandParameter="ru"
+                            BackgroundColor="#7C3AED"
+                            TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

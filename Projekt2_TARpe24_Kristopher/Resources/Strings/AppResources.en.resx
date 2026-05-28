@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>CityExplorer</value>
+  </data>
+  <data name="ExploreTitle" xml:space="preserve">
+    <value>Explore</value>
+  </data>
+  <data name="ExploreIntro" xml:space="preserve">
+    <value>Browse Tallinn places and choose a category on the right</value>
+  </data>
+  <data name="FavoritesTitle" xml:space="preserve">
+    <value>My favorites</value>
+  </data>
+  <data name="FavoritesIntro" xml:space="preserve">
+    <value>Places you saved for later are shown here</value>
+  </data>
+  <data name="EmptyFavoritesText" xml:space="preserve">
+    <value>No favorites added yet</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsIntro" xml:space="preserve">
+    <value>Choose the app language</value>
+  </data>
+  <data name="LanguageTitle" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="EstonianLanguage" xml:space="preserve">
+    <value>Estonian</value>
+  </data>
+  <data name="EnglishLanguage" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="RussianLanguage" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="CurrentLanguageFormat" xml:space="preserve">
+    <value>Current language: {0}</value>
+  </data>
+  <data name="AddFavoriteButton" xml:space="preserve">
+    <value>Add to favorites</value>
+  </data>
+  <data name="CloseButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FavoriteSavedTitle" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="FavoriteSavedMessage" xml:space="preserve">
+    <value>Place was added to favorites</value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="CategoryHistory" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="CategoryParks" xml:space="preserve">
+    <value>Parks</value>
+  </data>
+  <data name="CategoryFood" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="CategoryCulture" xml:space="preserve">
+    <value>Culture</value>
+  </data>
+  <data name="PlaceOldTownName" xml:space="preserve">
+    <value>Tallinn Old Town</value>
+  </data>
+  <data name="PlaceOldTownShort" xml:space="preserve">
+    <value>Medieval streets, towers and old city walls</value>
+  </data>
+  <data name="PlaceOldTownFull" xml:space="preserve">
+    <value>Tallinn Old Town is a UNESCO heritage area where you can walk cobblestone streets, visit Town Hall Square and discover old wall towers</value>
+  </data>
+  <data name="PlaceMuseumName" xml:space="preserve">
+    <value>Tallinn City Life Museum</value>
+  </data>
+  <data name="PlaceMuseumShort" xml:space="preserve">
+    <value>City stories and everyday life across centuries</value>
+  </data>
+  <data name="PlaceMuseumFull" xml:space="preserve">
+    <value>The museum shows Tallinn everyday life, trade, homes and how the city changed through different eras</value>
+  </data>
+  <data name="PlaceKadriorgName" xml:space="preserve">
+    <value>Kadriorg Park</value>
+  </data>
+  <data name="PlaceKadriorgShort" xml:space="preserve">
+    <value>Green paths, ponds, gardens and Kadriorg Palace</value>
+  </data>
+  <data name="PlaceKadriorgFull" xml:space="preserve">
+    <value>Kadriorg Park is an elegant walking area with a palace, flower gardens, old trees and quiet paths</value>
+  </data>
+  <data name="PlaceDragonName" xml:space="preserve">
+    <value>Dragon restaurant</value>
+  </data>
+  <data name="PlaceDragonShort" xml:space="preserve">
+    <value>A medieval food experience near Town Hall Square</value>
+  </data>
+  <data name="PlaceDragonFull" xml:space="preserve">
+    <value>Dragon restaurant offers a simple medieval mood, warm soup, pastries and a memorable stop in the heart of Old Town</value>
+  </data>
+  <data name="PlaceTheaterName" xml:space="preserve">
+    <value>Estonia Theater</value>
+  </data>
+  <data name="PlaceTheaterShort" xml:space="preserve">
+    <value>Opera, ballet and a home for Estonian stage culture</value>
+  </data>
+  <data name="PlaceTheaterFull" xml:space="preserve">
+    <value>Estonia Theater is an important Tallinn culture venue with operas, ballets, concerts and festive performances</value>
+  </data>
+</root>
